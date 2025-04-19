@@ -14,7 +14,7 @@ def interpret(chemical):
             chemint[1].append(1)
             index = index + 1
         if char.islower():
-            chemint[0][index] = chemical[j-1:j]
+            chemint[0][index] = chemical[j - 1:j]
         if char.isdigit():
             chemint[1][index] = int(char)
     return chemint
@@ -24,11 +24,11 @@ def interpret(chemical):
 # Input should be a .txt file (chemprocess.txt) (CHEM1+CHEM2=CHEM3+CHEM4) or arguments (CHEM1 CHEM2 = CHEM3 CHEM4)
 flag = 0
 if len(sys.argv) > 1:
-    for i in range(len(sys.argv)-1):
+    for i in range(len(sys.argv) - 1):
         # Locate the '=' to split the reaction between reagents and products
         if sys.argv[i+1] == '=':
-            react = sys.argv[1:(i+1)]
-            prod = sys.argv[(i+2):]
+            react = sys.argv[1:(i + 1)]
+            prod = sys.argv[(i + 2):]
             flag = 1
     if flag == 0:
         sys.exit('\033[91mExpected error 2: Incorrect formula, no = found.\033[0m')
@@ -37,6 +37,16 @@ if len(sys.argv) > 1:
 else:
     sys.exit('\033[91mExpected error 1: No arguments.\033[0m')
 
-table1 = interpret(react[0])
-print(table1[0])
-print(table1[1])
+datachem = {} # Set a dictionary to store chemicals and amounts.
+count = 0
+for i in range(len(react)): # Add reactants to datachem.
+    count = count + 1
+    key = f'reac{count}'
+    datachem[key] = interpret(react[i])
+count = 0
+for i in range(len(prod)): # Add products to datachem.
+    count = count + 1
+    key = f'prod{count}'
+    datachem[key] = interpret(prod[i])
+
+print(datachem)
