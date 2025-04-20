@@ -1,17 +1,16 @@
-**v0.2.1**<br/>
-*balancer.py*<br/>
+**v0.2.1** <br/>
+_balancer.py_ <br/>
 Added enmark() algorithm.<br/>
 Added datachem dictionary and assigned reactants and
-products.
----
+products. <br/>
+
 **v0.2**<br/>
-*balancer.py*<br/>
+_balancer.py_ <br/>
 Changed the old algorithm for sorting chemicals to enlist()
 and enmark(), which are less prone to error.<br/>
-Added enlist() algorithm.
----
+Added enlist() algorithm. <br/>
+
 **v0.1**<br/>
-*balancer.py*<br/>
-Created *ChemBalance* and uploaded *balancer.py*.<br/>
-Added *README.md* and *LICENSE.md*.
----
+_balancer.py_ <br/>
+Created _ChemBalance_ and uploaded _balancer.py_.<br/>
+Added _README.md_ and _LICENSE.md_. <br/>
