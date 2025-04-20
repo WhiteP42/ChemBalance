@@ -20,7 +20,22 @@ def enlist(chemical):
     return chemlist
 
 def enmark(chemlist):
-    return
+    chemchar = [
+        [], # Elements (Row 0)
+        []  # Amounts  (Row 1)
+    ]
+    for e in range(len(chemlist)):
+        found = False
+        char = chemlist[e]
+        for f in range(len(chemchar[0])):
+            if char == chemchar[0][f]: # If the element is already in the list, add 1 to the amount.
+                chemchar[1][f] = chemchar[1][f] + 1
+                found = True
+                break # If found, exit the loop.
+        if not found: # If after all iterations the element is not in the list, add it to the list and 1 to the amount.
+            chemchar[0].append(char)
+            chemchar[1].append(1)
+    return chemchar
 
 #######################################################################################################################
 
@@ -42,4 +57,11 @@ if len(sys.argv) > 1:
 else:
     sys.exit('\033[91mExpected error 1: No arguments.\033[0m')
 
-datachem = {} # Set a dictionary to store chemicals and amounts.
+# Store in a dictionary.
+datachem = {}
+for i in range(len(react)):
+    key = f'reac{i}'
+    datachem[key] = enmark(enlist(react[i]))
+for i in range(len(prod)):
+    key = f'prod{i}'
+    datachem[key] = enmark(enlist(prod[i]))
