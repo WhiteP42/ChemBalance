@@ -1,3 +1,7 @@
+**v0.2.2** <br/>
+_balancer.py_ <br/>
+Added gausprep(), an algoritm that generates a matrix to solve the equation.<br/>
+
 **v0.2.1** <br/>
 _balancer.py_ <br/>
 Added enmark() algorithm.<br/>
