@@ -8,7 +8,7 @@ def enlist(chemical):
         index = -1  # Index starts -1 so it gives an accurate list value.
         if char.isupper(): # If the character is upper, add it to a new entry.
             chemlist.append(char)
-            index = index + 1
+            index += 1
         if char.islower(): # If the character is lower, assign it to the previous upper character.
             chemlist[index] = chemlist[index] + char
         if char.isdigit(): #
@@ -16,8 +16,8 @@ def enlist(chemical):
             amount = int(chemical[e]) - 1
             for j in range(amount):
                 chemlist.append(chemlist[index])
-            iteration = iteration + 1
-            index = index + iteration
+            iteration += 1
+            index += iteration
     return chemlist
 
 def enmark(chemlist):
